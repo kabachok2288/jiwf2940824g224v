@@ -1,0 +1,58 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <title>Prankmail</title>
+  <link rel="stylesheet" href="/css/styles.css" type="text/css" media="screen" charset="utf-8">
+</head>
+
+<body>
+  <div id="center-this">
+
+    <div class="header">Prankmail</div>
+
+    <% if @msg %>
+      <div class="message"><%= @msg %></div>
+    <% end %>
+    <div class="mailform">
+      <form action="/" method="POST">
+        <div>
+          <label for="from">From email:</label>
+          <input type="email" name="from" />
+        </div>
+        <div>
+          <label for="to">To email:</label>
+          <input type="email" name="to" />
+        </div>
+        <div>
+            <label for="subject">Subject:</label>
+            <input type="text" name="subject" />
+        </div>
+        <div>
+            <label for="body">Message:</label>
+            <textarea name="body" rows="10"></textarea>
+        </div>
+        <div class="button-holder">
+          <button class="button" type="submit">Send!</button>
+        </div>
+      </form>
+    </div>
+    <div id="footer">
+      <p>
+        Built by <a href="http://mixedcontent.com">MixedContent</a> and <a href="http://twitter.com/cbrumelle">@cbrumelle</a>.
+      </p>
+    </div>
+  </div>
+  <script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+  try {
+  var pageTracker = _gat._getTracker("UA-91064-6");
+  pageTracker._trackPageview();
+  } catch(err) {}</script>
+</body>
+</html>
