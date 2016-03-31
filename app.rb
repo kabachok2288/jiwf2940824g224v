@@ -3,6 +3,7 @@ require 'pony'
 
 configure do
   Pony.options = {
+    :headers => { 'Content-Type' => 'text/html' },
     :via => :smtp,
     :via_options => {
       :address => 'smtp.sendgrid.net',
@@ -30,8 +31,12 @@ post '/' do
     :to => params[:to],
     :from => params[:from],
     :subject => params[:subject],
-    :body => params[:body]
+    :body => nl2br(params[:body])
   )
-  @msg = "Email sent!"
+  @sent = true
   erb :index
+end
+
+def nl2br(string)
+  string.gsub("\n\r","<br>").gsub("\r", "").gsub("\n", "<br />")
 end

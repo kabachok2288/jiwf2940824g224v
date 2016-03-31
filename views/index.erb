@@ -5,49 +5,68 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
   <title>Prankmail</title>
-  <link rel="stylesheet" href="/css/styles.css" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-  <div id="center-this">
-
-    <div class="header">Prankmail</div>
-
-    <% if @msg %>
-      <div class="message"><%= @msg %></div>
-    <% end %>
-    <div class="mailform">
-      <form action="/" method="POST">
-        <div>
-          <label for="from">From email:</label>
-          <input type="text" name="from" />
-        </div>
-        <div>
-          <label for="to">To email:</label>
-          <input type="text" name="to" />
-        </div>
-        <div>
-            <label for="subject">Subject:</label>
-            <input type="text" name="subject" />
-        </div>
-        <div>
-            <label for="body">Message:</label>
-            <textarea name="body" rows="10"></textarea>
-        </div>
-        <div class="button-holder">
-          <button class="button" type="submit">Send!</button>
-        </div>
-      </form>
+  <div class="col-md-6 col-md-offset-3"  >
+    <div class="page-header">
+      <h1>Email Spoofer</h1>
+      <p class="lead">Exposing the inherent insecurity and unseemliness of email since 2016. Also its potential for fun.</p>
     </div>
+
+    <% if @sent %>
+      <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Email sent!</strong> Why not send another one, you sassy beast!
+      </div>
+    <% end %>
+
+
+    <form action="/" method="POST" class="form-horizontal">
+
+      <div class="form-group">
+        <label for="from" class="col-sm-2 control-label">From</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="from" placeholder="from-email@mail.com">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="to" class="col-sm-2 control-label">To</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="to" placeholder="to-email@mail.com">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="subject" class="col-sm-2 control-label">Subject</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="subject" placeholder="your subject">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="body" class="col-sm-2 control-label">Message</label>
+        <div class="col-sm-10">
+          <textarea class="form-control" name="body" rows="10"></textarea>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default">Send it!</button>
+        </div>
+      </div>
+    </form>
+
   </div>
-  <script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-  </script>
-  <script type="text/javascript">
-  try {
-  var pageTracker = _gat._getTracker("UA-91064-6");
-  pageTracker._trackPageview();
-  } catch(err) {}</script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </body>
 </html>
