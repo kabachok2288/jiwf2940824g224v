@@ -17,11 +17,6 @@ configure do
   }
 end
 
-before do
-  puts '[Params]'
-  p params
-end
-
 get '/' do
   erb :index
 end
